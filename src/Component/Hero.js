@@ -1,7 +1,9 @@
 import React from 'react';
-
-function Hero(props) {
-
+import moment from 'moment' ;
+function Hero({filters,onFiltersChange}) {
+    
+   // console.log(filters)
+    
     return (
         
                     <section className="hero is-primary">
@@ -11,12 +13,11 @@ function Hero(props) {
                             Hoteles
                             </h1>
                             <h2 className="subtitle">
-                            {/* desde el <strong>dddd, DD de mmmm de AAAA</strong> hasta el <strong>dddd, DD de mmmm de AAAA</strong> */}
-
-                            desde el <strong>{ props.filters.dateFrom.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }</strong> hasta el <strong>{ props.filters.dateTo.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }</strong>
-                            {/* { props.filters.country ? ` en ${props.filters.country}` : '' }
-                            { props.filters.price ? ` por ${'$'.repeat(props.filters.price)}` : '' }
-                            { props.filters.rooms ? ` de hasta ${props.filters.rooms} habitaciones` : '' } */}
+                            {/* desde el <strong>{moment(filters.dateFrom).format('LL')}</strong> hasta el <strong>{moment(filters.dateTo).format('LL')}</strong>  */}
+                            desde el <strong>{filters.dateFrom.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }</strong> hasta el <strong>{filters.dateTo.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }</strong>
+           
+                        
+                            
                             </h2>
                         </div>
                         </div>

@@ -1,6 +1,7 @@
 
 
 function Hotel(props) {
+  console.log(data)
     return (
       <div className="card">
         <div className="card-image">
@@ -10,11 +11,11 @@ function Hotel(props) {
         </div>
         <div className="card-content">
           <p className="title is-4">{props.children.name}</p>
-          <p>{props.children.description}</p>
+          <p>{data.description}</p>
           <div className="field is-grouped is-grouped-multiline" style={{marginTop: '1em'}}>
-            <DataTag icon="map-marker">{ `${props.children.city}, ${props.children.country}` }</DataTag>
-            <DataTag icon="bed">{ `${props.children.rooms} Habitaciones` }</DataTag>
-            <PriceTag count={props.children.price} />
+            <DataTag icon="map-marker">{ `${props.children.city}, ${data.country}` }</DataTag>
+            <DataTag icon="bed">{ `${data.rooms} Habitaciones` }</DataTag>
+            <PriceTag count={data.price} />
           </div>
         </div>
         <div className="card-footer">

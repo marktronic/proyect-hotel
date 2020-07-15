@@ -1,30 +1,27 @@
 
 import React from 'react';
-function OptionsFilter(props) {
-  const prueba=()=>{
-    alert('hola');
-  }
-  const options =props.options
+function OptionsFilter({Options,icon, name, onChange,onOptionChange,selected}) {
+ 
+  
+//  const handleOptionChange=(e)=> {
+//     return onOptionChange(e)
+//   }
+ 
     return (
       <div>
          
 <div className="field">
   <div className="control has-icons-left">
     <div className="select" style={ {width: '100%'} }>
-      <select style={ {width: '100%'} }>
-      {   
-                               options.map((option) =>
-                                <option key={option.name} 
-                                        value={option.value} 
-                                        onClick={prueba}>
-                                        {option.name}
-                                </option>
-                               )
-                            }                      
+      <select style={ {width: '100%'} } 
+      // onChange={ handleOptionChange } 
+      name={ name }
+      value={ selected } >
+      { Options.map((option) => <option value={ option.value || '' } key={ option.value }>{ option.name }</option> ) }
       </select>
     </div>
     <div className="icon is-small is-left">
-      <i className="fas"></i>
+      <i className={ `fas fa-${icon}` }></i>
     </div>
   </div>
 </div>

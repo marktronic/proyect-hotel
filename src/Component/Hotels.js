@@ -5,7 +5,7 @@ import React, { Component,useState } from 'react'
 
 export default function Hotels(props) {
     const {hotel} =props.data;
-    console.log('hola');
+    // console.log('hola');
     return (
     <div className="card">
     <div className="card-image">
