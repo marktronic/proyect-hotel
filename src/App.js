@@ -49,40 +49,56 @@ import '@fortawesome/fontawesome-free-solid';
     // const handleChangeDateTo = ( e ) => {
     //     console.log( e.target.value ) ;
     // } ;
-    const handleChangeDateFrom = (e) => {
-      let selected = e.target.value;  
+  //   const handleChangeDateFrom = (e) => {
+  //     let selected = e.target.value;  
       
-      const dateFormat = selected.replace(/-/gi,',');
+  //     const dateFormat = selected.replace(/-/gi,',');
       
       
-      const newDateFrom = new Date(dateFormat);
+  //     const newDateFrom = new Date(dateFormat);
       
-      setFilters({
-        ...filter,
-        dateFrom : newDateFrom
-      }); 
+  //     setFilters({
+  //       ...filter,
+  //       dateFrom : newDateFrom
+  //     }); 
       
-    } 
+  //   } 
    
-    const handleChangeDateTo  = (e) => {
-      let selectd = e.target.value;  
+  //   const handleChangeDateTo  = (e) => {
+  //     let selectd = e.target.value;  
       
-      const dateFormat = selectd.replace(/-/gi,',');
+  //     const dateFormat = selectd.replace(/-/gi,',');
       
       
-      const newDateTo = new Date(dateFormat);
+  //     const newDateTo = new Date(dateFormat);
       
-      setFilters({
-        ...filter,
-        dateTo : newDateTo
-      }); 
+  //     setFilters({
+  //       ...filter,
+  //       dateTo : newDateTo
+  //     }); 
       
-    }
-   const  handleFilterChange=(payload)=> {
-      setFilters({
-        filter: payload
-      })
-    }
+  //   }
+  //  const  handleFilterChange=(payload)=> {
+  //     setFilters({
+  //       filter: payload
+  //     })
+  //   }
+  const handleChangeFilter = ( e ) => {
+    const { name } = e.target ;
+    const { type } = e.target ;
+    const value = ( type === 'date' ) ? moment( e.target.value ) : e.target.value ;
+
+    /* if ( type === 'date' ) {
+   value = new Date( value )
+  } */
+
+    setFilters( {
+        ...filters,
+        [name]: value,
+    } ) ;
+
+    console.log( name, value, type ) ;
+} ;
 
       console.log(data)
       console.log(filter.dateTo)
@@ -96,9 +112,7 @@ import '@fortawesome/fontawesome-free-solid';
           />
           <Filters filters={filter} 
                    Options={Options}
-                   onChangeDateFrom={ handleChangeDateFrom }
-                   onChangeDateTo = { handleChangeDateTo  }
-                   onFilterChange={handleFilterChange}
+                   onChange={ handleChangeFilter }
          />
           <Hotels data={data}/>
           </div>

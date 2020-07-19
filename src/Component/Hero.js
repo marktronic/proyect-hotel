@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment' ;
-function Hero({filters,onFiltersChange}) {
+function Hero({filters}) {
     
    // console.log(filters)
     
@@ -12,13 +12,13 @@ function Hero({filters,onFiltersChange}) {
                             <h1 className="title">
                             Hoteles
                             </h1>
-                            <h2 className="subtitle">
-                            {/* desde el <strong>{moment(filters.dateFrom).format('LL')}</strong> hasta el <strong>{moment(filters.dateTo).format('LL')}</strong>  */}
-                            desde el <strong>{filters.dateFrom.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }</strong> hasta el <strong>{filters.dateTo.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }</strong>
-           
-                        
-                            
-                            </h2>
+                            <h2 className='subtitle'>
+                   Desde el  <strong> { moment(filters.dateFrom).format('LL') } </strong> 
+                   hasta el <strong> { moment(filters.dateTo).format('LL') } </strong>
+                   <strong> { filters.country ? ` en ${filters.country}` : '' } </strong>
+                   <strong> { filters.price ? ` por ${( filters.price ) }` : '' } </strong> 
+                   <strong> { filters.rooms  ? ` en ${filters.rooms} ` : '' } </strong> 
+                   </h2>
                         </div>
                         </div>
                     </section>

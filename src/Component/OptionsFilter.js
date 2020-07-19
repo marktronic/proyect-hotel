@@ -1,6 +1,6 @@
 
 import React from 'react';
-function OptionsFilter({Options,icon, name, onChange,onOptionChange,selected}) {
+function OptionsFilter({Options,icon, name, onChange,selected}) {
  
   
 //  const handleOptionChange=(e)=> {
@@ -13,12 +13,17 @@ function OptionsFilter({Options,icon, name, onChange,onOptionChange,selected}) {
 <div className="field">
   <div className="control has-icons-left">
     <div className="select" style={ {width: '100%'} }>
-      <select style={ {width: '100%'} } 
-      // onChange={ handleOptionChange } 
-      name={ name }
-      value={ selected } >
-      { Options.map((option) => <option value={ option.value || '' } key={ option.value }>{ option.name }</option> ) }
-      </select>
+    <select style= { { width: '100%' } } defaultValue={ selected } onChange={ onChange } name={ name }>
+                        {
+                            Options.map( (option)=>
+                            <option key= { option.name } 
+                                    value= { option.name}
+                                    >
+                                  {option.name}
+                             </option>      
+                            )
+                        }
+                    </select>
     </div>
     <div className="icon is-small is-left">
       <i className={ `fas fa-${icon}` }></i>
