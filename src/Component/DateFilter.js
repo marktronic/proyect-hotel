@@ -3,7 +3,7 @@ import React from 'react';
 import moment from 'moment' ;
 
 
-export default function DateFilter ( { icon, onChangeDate, onChange } ) {
+export default function DateFilter ( { icon, onChangeDate, onChange,date } ) {
 
     
     return (
