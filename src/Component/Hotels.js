@@ -1,39 +1,89 @@
-import React, { Component,useState } from 'react'
+import React from 'react'
+import Hotel from './Hotel';
+
+export default function Hotels( { hotel} ) {
+     console.log(hotel)
+     return (
+
+        <section className="section" style={ {marginTop: '3em'} }>
+         <div className="container">
+          <div className="columns is-multiline">
+               { hotel.map( hotel => (
+                    <div key="1" className="column is-one-third">
+                    <Hotel data={ hotel } />
+                    </div>
+               ) ) }   
+          </div>
+         </div>
+       </section>
+     )
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { Component,useState } from 'react'
 
  
 
 
-export default function Hotels(props) {
-    const {hotel} =props.data;
-    // console.log('hola');
-    return (
-    <div className="card">
-    <div className="card-image">
-      <figure className="image is-4by3">
-        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image"/>
-      </figure>
-    </div>
-    <div className="card-content">
-      <div className="media">
-        <div className="media-left">
-          <figure className="image is-48x48">
-            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image"/>
-          </figure>
-        </div>
-        <div className="media-content">
-          <p className="title is-4">John Smith</p>
-          <p className="subtitle is-6">@johnsmith</p>
-        </div>
-      </div>
-  
-      <div className="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-        <a href="#">#css</a> <a href="#">#responsive</a>
-        <br/>
-        <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-      </div>
-    </div>
-  </div>
-    )
-}
+// export default function Hotels(props) {
+//     const {hotel} =props.data;
+//     // console.log('hola');
+//     return (
+   
+// <div className="card">
+//   <div className="card-image">
+//     <figure className="image is-4by3">
+//       {/* <img src="./images/sainte-jeanne.jpg" alt="Sainte Jeanne Boutique & Spa" /> */}
+//       <img src="C:\Users\MARCOS\Downloads\assets (1).zip\images " />
+//     </figure>
+//   </div>
+//   <div className="card-content">
+//     <p className="title is-4">Sainte Jeanne Boutique & Spa</p>
+//     <p>Sainte Jeanne Hotel Boutique & Spa está ubicado en el corazón de Los Troncos, un barrio residencial y elegante de Mar del Plata. El lujo, el confort y la pasión por los detalles dan personalidad a esta cálida propuesta.</p>
+//     <div className="field is-grouped is-grouped-multiline" style={{marginTop: '1em'}}>
+//       <div className="control">
+//         <div className="tags has-addons">
+//           <span className="tag is-medium is-info"><i className="fas fa-map-marker"></i></span>
+//           <span className="tag is-medium">Mar del Plata, Argentina</span>
+//         </div>
+//       </div>
+//       <div className="control">
+//         <div className="tags has-addons">
+//           <span className="tag is-medium is-info"><i className="fas fa-bed"></i></span>
+//           <span className="tag is-medium">23 Habitaciones</span>
+//         </div>
+//       </div>
+//       <div className="control">
+//         <div className="tags">
+//           <span className="tag is-medium is-info">
+//             <i className="fas fa-dollar-sign" style={{margin: '0 .125em'}}></i>
+//             <i className="fas fa-dollar-sign" style={{margin: '0 .125em'}}></i>
+//             <i className="fas fa-dollar-sign" style={{margin: '0 .125em', opacity: '.25'}}></i>
+//             <i className="fas fa-dollar-sign" style={{margin: '0 .125em', opacity: '.25'}}></i>
+//           </span>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+//   <div className="card-footer">
+//     <a href="javascript:alert('No implementamos esto aún :(')" className="card-footer-item has-background-primary has-text-white has-text-weight-bold">Reservar</a>
+//   </div>
+// </div>
+
+//     )
+// }

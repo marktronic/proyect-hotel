@@ -3,40 +3,31 @@ import 'bulma/css/bulma.min.css';
 import Filters from './Component/Filters.js';
 import Hero from './Component/Hero.js';
 import Hotels from './Component/Hotels.js';
-import { today } from './data.js';
-import { hotelsData } from  './data';
+// import Hotel from '../Components/Hotel.js' ;
+// import { today } from './data.js';
+// import { hotelsData } from  './data';
+import { today, hotelsData } from './scripts/data.js' ;
 import '@fortawesome/fontawesome';
 import '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-free-solid';
+import moment from 'moment' ;
     function App() {
      
 
         const initialValuesFilter = {
           dateFrom: today,
-          dateTo: new Date(today.valueOf() + 86400000 ),
+          dateTo: new Date,//(today.valueOf() + 86400000 ),
           country: undefined,
           price: undefined,
           rooms: undefined
       
       } ;
       const OptionsData=[ { value: undefined, name: 'Cualquier Tamaño' },
-                            { value: 10, name: 'Hotel Pequeño' },
-                            { value: 20, name: 'Hotel Mediano' },
-                            { value: 30, name: 'Hotel Grande' }];
-  //       const handleShowConditionalFilters = () => {    
-
-  //   let country, price, rooms;    
-
-  //   (initialValuesFilter.country !== undefined) ? country = `en ${initialValuesFilter.country}` : country = "";
-
-  //   (initialValuesFilter.price !== undefined) ? price = ` a ${initialValuesFilter.price} pesos` : price = "";    
-
-  //   (initialValuesFilter.rooms !== undefined) ? rooms = ` de hasta ${initialValuesFilter.rooms} habitaciones` : rooms = "";
-    
-  //   return country + price + rooms;
-  // }                  
-
+                          { value: 10, name: 'Hotel Pequeño' },
+                          { value: 20, name: 'Hotel Mediano' },
+                          { value: 30, name: 'Hotel Grande' }];
+ 
 
 
       const [ filter , setFilters ] = useState(initialValuesFilter);
@@ -55,37 +46,9 @@ import '@fortawesome/fontawesome-free-solid';
   //     const dateFormat = selected.replace(/-/gi,',');
       
       
-  //     const newDateFrom = new Date(dateFormat);
-      
-  //     setFilters({
-  //       ...filter,
-  //       dateFrom : newDateFrom
-  //     }); 
-      
-  //   } 
-   
-  //   const handleChangeDateTo  = (e) => {
-  //     let selectd = e.target.value;  
-      
-  //     const dateFormat = selectd.replace(/-/gi,',');
-      
-      
-  //     const newDateTo = new Date(dateFormat);
-      
-  //     setFilters({
-  //       ...filter,
-  //       dateTo : newDateTo
-  //     }); 
-      
-  //   }
-  //  const  handleFilterChange=(payload)=> {
-  //     setFilters({
-  //       filter: payload
-  //     })
-  //   }
   const handleChangeFilter = ( e ) => {
     const { name } = e.target ;
-    const { type } = e.target ;
+    const { type } = e.target;
     const value = ( type === 'date' ) ? moment( e.target.value ) : e.target.value ;
 
     /* if ( type === 'date' ) {
@@ -93,7 +56,7 @@ import '@fortawesome/fontawesome-free-solid';
   } */
 
     setFilters( {
-        ...filters,
+        ...filter,
         [name]: value,
     } ) ;
 
@@ -101,8 +64,12 @@ import '@fortawesome/fontawesome-free-solid';
 } ;
 
       console.log(data)
-      console.log(filter.dateTo)
-      console.log(filter.dateFrom)
+      console.log(hotelsData)
+      // 
+
+ 
+  
+      //console.log(filter)
       // console.log(hotelsData);
         return (
          
@@ -114,7 +81,9 @@ import '@fortawesome/fontawesome-free-solid';
                    Options={Options}
                    onChange={ handleChangeFilter }
          />
-          <Hotels data={data}/>
+              <div className="column is-one-third">
+                <Hotels hotel={data} />
+            </div>
           </div>
         )
       }

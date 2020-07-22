@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment' ;
 function Hero({filters}) {
     
-   // console.log(filters)
+   console.log(filters)
     
     return (
         
@@ -13,6 +13,7 @@ function Hero({filters}) {
                             Hoteles
                             </h1>
                             <h2 className='subtitle'>
+        
                    Desde el  <strong> { moment(filters.dateFrom).format('LL') } </strong> 
                    hasta el <strong> { moment(filters.dateTo).format('LL') } </strong>
                    <strong> { filters.country ? ` en ${filters.country}` : '' } </strong>
