@@ -3,13 +3,23 @@ import Hotel from './Hotel';
 
 export default function Hotels( { hotel} ) {
      console.log(hotel)
+     
+     if ( !hotel|| ( hotel&& hotel.length === 0 ) ) {
+          return (
+              <article className="message is-warning">
+                  <div className="message-body">
+                      No se han encontrado hoteles que coincidan con los parámetros de búsqueda.
+                  </div>
+              </article>
+          ) ;
+      }
      return (
 
         <section className="section" style={ {marginTop: '3em'} }>
          <div className="container">
           <div className="columns is-multiline">
                { hotel.map( hotel => (
-                    <div key="1" className="column is-one-third">
+                    <div key={ hotel.slug } className="column is-one-third">
                     <Hotel data={ hotel } />
                     </div>
                ) ) }   

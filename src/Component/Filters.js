@@ -1,7 +1,7 @@
 import React from 'react'
 import DateFilter from './DateFilter.js';
 import OptionsFilter from './OptionsFilter.js';
-export default function Filters ({filters,Options, onChange}) {
+export default function Filters ({filters,Options, onChange,prices,countries,sizes}) {
  
 
 
@@ -33,12 +33,7 @@ export default function Filters ({filters,Options, onChange}) {
                           <OptionsFilter 
                                onChange={onChange}
                                name='country'
-                               Options={[{ value: undefined, name: 'Todos los países'},
-                                        { value: 'Argentina', name: 'Argentina'},
-                                        { value: 'Brasil', name: 'Brasil'},
-                                        { value: 'Chile', name: 'Chile'},
-                                        { value: 'Uruguay', name: 'Uruguay'}
-                                        ]}
+                               Options={countries}
                                 selected={filters.country}
                                 icon="fas fa-globe"
                 />
@@ -48,12 +43,7 @@ export default function Filters ({filters,Options, onChange}) {
                 <OptionsFilter 
                                onChange={onChange}
                                name='price'
-                               Options={[{value:undefined, name: 'Cualquier precio'},
-                                            {value:1, name: '$'},
-                                            {value:2, name: '$$'},
-                                            {value:3, name: '$$$'},
-                                            {value:4, name: '$$$$'},
-                                        ]}
+                               Options={prices}
                                 selected={filters.price}
                                 icon="fas fa-dollar-sign"
                 />
@@ -62,7 +52,7 @@ export default function Filters ({filters,Options, onChange}) {
                     <OptionsFilter 
                                     onChange={onChange}
                                     name='rooms'
-                                    Options={ Options }
+                                    Options={ sizes }
                                     selected={ filters.rooms }
                                     icon="fas fa-bed"
                 />
