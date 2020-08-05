@@ -1,6 +1,6 @@
 
 import React from 'react'
- import Tags from './tags.js';
+ import Tags from './Tags.js';
 
 export default function Hotel ( { data }) {
      console.log(data)

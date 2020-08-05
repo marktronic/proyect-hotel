@@ -13,6 +13,7 @@ import '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-free-solid';
 import moment from 'moment' ;
+import  './config/momentConfig' ;
     function App() {
      
 
